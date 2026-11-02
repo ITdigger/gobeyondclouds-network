@@ -1,0 +1,98 @@
+{
+  "version": "0.1",
+  "generated": "2026-11-02",
+  "site": "https://gobeyondclouds.io",
+  "policy": "https://gobeyondclouds.io/terms",
+  "contact": "hello@gobeyondclouds.io",
+  "llms_txt": "https://gobeyondclouds.io/llms.txt",
+  "agent_card": "https://gobeyondclouds.io/.well-known/agent-card.json",
+  "allow": [
+    "/",
+    "/ventures",
+    "/ventures/*",
+    "/a2a",
+    "/space",
+    "/energy-data",
+    "/agents",
+    "/insights",
+    "/network-status",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/network.json",
+    "/feed.xml",
+    "/feed.json",
+    "/.well-known/*"
+  ],
+  "disallow": [
+    "/dashboard",
+    "/dashboard/*"
+  ],
+  "endpoints": [
+    {
+      "name": "registry",
+      "url": "https://gobeyondclouds.io/network.json",
+      "protocol": "rest",
+      "method": "GET",
+      "auth": "none",
+      "rate_limit": "unlimited, cached 10 min"
+    },
+    {
+      "name": "stats",
+      "url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats",
+      "protocol": "rest",
+      "method": "GET",
+      "auth": "none",
+      "rate_limit": "60/min"
+    },
+    {
+      "name": "activity",
+      "url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/activity",
+      "protocol": "rest",
+      "method": "GET",
+      "auth": "none",
+      "rate_limit": "60/min"
+    },
+    {
+      "name": "feed",
+      "url": "https://gobeyondclouds.io/feed.json",
+      "protocol": "jsonfeed",
+      "method": "GET",
+      "auth": "none",
+      "rate_limit": "unlimited"
+    },
+    {
+      "name": "hello",
+      "url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/hello",
+      "protocol": "rest",
+      "method": "POST",
+      "auth": "none",
+      "rate_limit": "3/min"
+    },
+    {
+      "name": "waitlist",
+      "url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/waitlist",
+      "protocol": "rest",
+      "method": "POST",
+      "auth": "none",
+      "rate_limit": "3/min"
+    },
+    {
+      "name": "mcp",
+      "url": "https://mcp.gobeyondclouds.io/mcp",
+      "protocol": "mcp",
+      "transport": "streamable-http",
+      "auth": "none (api-key for solar_prefeasibility)",
+      "status": "live",
+      "tools": [
+        "network_stats",
+        "list_ventures",
+        "skill_rank",
+        "solar_prefeasibility",
+        "say_hello"
+      ],
+      "source": "https://github.com/ITdigger/gobeyondclouds-network"
+    }
+  ],
+  "training": "allowed (content signal ai-train=yes on this zone; see robots.txt Content-Signal)",
+  "attribution": "cite the venture URL or gobeyondclouds.io"
+}

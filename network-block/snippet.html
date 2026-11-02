@@ -1,0 +1,21 @@
+<!-- GoBeyondClouds network block — paste before </body> on any GBC site. Reads /network.json from the hub; no cookies, no tracking. -->
+<aside id="gbc-network" data-current="SLUG-OF-THIS-SITE" style="font:14px/1.5 system-ui,sans-serif;border-top:1px solid #1E3A5F;margin-top:48px;padding:20px 0;color:#94A3B8">
+  <p style="margin:0 0 6px;letter-spacing:.15em;text-transform:uppercase;font-size:11px;color:#00D4AA">Part of the GoBeyondClouds network</p>
+  <p style="margin:0" id="gbc-network-links">Loading the network…</p>
+</aside>
+<script>
+(async function(){try{
+  var el=document.getElementById('gbc-network'),cur=el.getAttribute('data-current');
+  var r=await fetch('https://gobeyondclouds.io/network.json',{headers:{Accept:'application/json'}});var reg=await r.json();
+  var me=reg.ventures.find(function(v){return v.slug===cur;});
+  var sibs=me?me.siblings.map(function(s){return reg.ventures.find(function(v){return v.slug===s;});}).filter(Boolean):reg.ventures.filter(function(v){return v.status==='live';}).slice(0,3);
+  var utm='?utm_source='+encodeURIComponent(cur||'network')+'&utm_medium=network-block&utm_campaign=footer';
+  var link=function(h,t){return '<a href="'+h+'" style="color:#F0F4F8;margin-right:16px">'+t+'</a>';};
+  var html=link('https://gobeyondclouds.io/ventures'+utm,'All '+reg.ventures.length+' ventures');
+  sibs.forEach(function(s){var href=s.url.indexOf('gobeyondclouds.io')>-1?s.url+utm:s.url+'?utm_source='+encodeURIComponent(cur||'network')+'&utm_medium=network-block';html+=link(href,s.name);});
+  html+=link('https://gobeyondclouds.io/agents'+utm,'Agents: llms.txt · API · MCP');
+  document.getElementById('gbc-network-links').innerHTML=html;
+  var ld={"@context":"https://schema.org","@type":"Organization","name":me?me.name:document.title,"url":location.origin,"parentOrganization":{"@type":"Organization","name":"GBC SRL","url":"https://gobeyondclouds.io"}};
+  var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify(ld);document.head.appendChild(s);
+}catch(e){document.getElementById('gbc-network-links').innerHTML='<a href="https://gobeyondclouds.io/ventures" style="color:#F0F4F8">GoBeyondClouds — all ventures</a>';}})();
+</script>

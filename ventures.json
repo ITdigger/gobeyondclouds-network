@@ -1,0 +1,481 @@
+{
+  "$schema": "https://gobeyondclouds.io/schema/ventures.schema.json",
+  "version": "2026-11-02",
+  "generated_by": "gbc/website/ventures.json — single source of truth; edit here, everything else is generated",
+  "network": {
+    "name": "GoBeyondClouds",
+    "legal": "GBC SRL",
+    "vat": "BE 0827.753.161",
+    "address": "Rue Godefroid Devreese 43, 1030 Brussels, Belgium",
+    "founded": "2008",
+    "founder": "Juergen Ritzek",
+    "email": "hello@gobeyondclouds.io",
+    "url": "https://gobeyondclouds.io",
+    "api": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public",
+    "same_as": [
+      "https://www.linkedin.com/company/gobeyondclouds",
+      "https://github.com/ITdigger"
+    ],
+    "clusters": {
+      "a2a": {
+        "name": "A2A",
+        "title": "Agent-to-agent economy",
+        "path": "/a2a",
+        "one_liner": "A trust registry, a weekly investigation, a newsletter and a quiz about agents that buy from agents."
+      },
+      "space": {
+        "name": "Space",
+        "title": "Space economy",
+        "path": "/space",
+        "one_liner": "A newsletter on space-based solar power, a quiz for the space audience and a weekly intel brief."
+      },
+      "energy-data": {
+        "name": "Energy Data",
+        "title": "Industrial energy data",
+        "path": "/energy-data",
+        "one_liner": "Solar pre-feasibility reports, site energy forecasts and four regulatory data products in demand test."
+      }
+    }
+  },
+  "status_legend": {
+    "live": "Running product with its own domain; agents and humans can use it today.",
+    "pilot": "Running with a small audience; not yet on its own domain.",
+    "lab": "Built and tested, private preview.",
+    "programme": "Ongoing research output, not a product.",
+    "data-capability": "Infrastructure kept running inside the network; not sold as a product.",
+    "waitlist": "Idea in demand test. A sign-up is the only thing it collects.",
+    "credential": "Built by the same team under another legal entity. Not a GBC venture."
+  },
+  "ventures": [
+    {
+      "slug": "solaranalytics",
+      "name": "SolarAnalytics EU",
+      "cluster": "energy-data",
+      "status": "live",
+      "one_liner": "Satellite + PVGIS solar pre-feasibility report for a factory roof in minutes, EN/DE.",
+      "buyer": "Factory energy managers, solar installers, portfolio owners",
+      "pricing": "€0 / €9 / €29 self-serve; Partner €149/month; Enterprise from €499/month",
+      "url": "https://solaranalytics.space",
+      "llms_txt": "https://solaranalytics.space/llms.txt",
+      "feed": null,
+      "agent_access": {
+        "type": "rest",
+        "status": "partner-tier",
+        "docs": "https://solaranalytics.space/partners",
+        "auth": "api-key (partner tier)"
+      },
+      "siblings": [
+        "space-solar-news",
+        "sitecast"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-05",
+      "proof": [
+        {
+          "label": "solar reports generated",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#solar_reports_generated"
+        }
+      ]
+    },
+    {
+      "slug": "work-futures-report",
+      "name": "Work Futures Report",
+      "cluster": "a2a",
+      "status": "live",
+      "one_liner": "Newsletter on AI and the future of work, researched, written and sent by an agent pipeline under human editorial oversight.",
+      "buyer": "Readers (free), sponsors",
+      "pricing": "Free to read; sponsor slots on request",
+      "url": "https://workfutures.report",
+      "llms_txt": "https://workfutures.report/llms.txt",
+      "feed": "https://workfutures.report/rss.xml",
+      "agent_access": {
+        "type": "rss",
+        "status": "live",
+        "docs": "https://workfutures.report/rss.xml",
+        "auth": "none"
+      },
+      "siblings": [
+        "skillassay",
+        "a2a-economy-news"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-07",
+      "proof": [
+        {
+          "label": "newsletter issues sent by agents",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#anan_issues_sent"
+        },
+        {
+          "label": "articles written by agents",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#anan_articles_written"
+        }
+      ]
+    },
+    {
+      "slug": "space-solar-news",
+      "name": "Space Solar News",
+      "cluster": "space",
+      "status": "live",
+      "one_liner": "Newsletter on space-based solar power and spacecraft energy, researched, written and sent by an agent pipeline under human editorial oversight.",
+      "buyer": "Readers (free), sponsors",
+      "pricing": "Free to read; sponsor slots on request",
+      "url": "https://spacesolar.news",
+      "llms_txt": "https://spacesolar.news/llms.txt",
+      "feed": "https://spacesolar.news/rss.xml",
+      "agent_access": {
+        "type": "rss",
+        "status": "live",
+        "docs": "https://spacesolar.news/rss.xml",
+        "auth": "none"
+      },
+      "siblings": [
+        "space-whizz",
+        "solaranalytics"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-07",
+      "proof": [
+        {
+          "label": "newsletter issues sent by agents",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#anan_issues_sent"
+        },
+        {
+          "label": "newsletter subscribers",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#anan_subscribers"
+        }
+      ]
+    },
+    {
+      "slug": "a2a-economy-news",
+      "name": "A2A Economy (newsletter)",
+      "cluster": "a2a",
+      "status": "pilot",
+      "one_liner": "Newsletter on the agent-to-agent economy: who sells to agents, what they pay, what works. Credits SkillAssay's lab findings.",
+      "buyer": "Readers (free)",
+      "pricing": "Free to read",
+      "url": "https://gobeyondclouds.io/ventures/a2a-economy-news",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "rss",
+        "status": "planned",
+        "docs": null,
+        "auth": "none"
+      },
+      "siblings": [
+        "skillassay",
+        "work-futures-report"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-10",
+      "proof": []
+    },
+    {
+      "slug": "skillassay",
+      "name": "SkillAssay",
+      "cluster": "a2a",
+      "status": "live",
+      "one_liner": "Neutral registry ranking AI agent skills on observed outcomes, plus the A2A Field Lab: one published investigation a week with method, limits and a corrections log.",
+      "buyer": "Consultants and enterprise teams choosing agent services; agent builders; other agents choosing tools",
+      "pricing": "Free index and lab; reports on request",
+      "url": "https://skillassay.com",
+      "llms_txt": "https://skillassay.com/llms.txt",
+      "feed": null,
+      "agent_access": {
+        "type": "rest",
+        "status": "live",
+        "docs": "https://skillassay.com",
+        "auth": "none for index"
+      },
+      "siblings": [
+        "a2a-economy-news",
+        "relay-league"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-07",
+      "proof": [
+        {
+          "label": "skills indexed",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#skillassay_skills_indexed"
+        },
+        {
+          "label": "outcomes observed",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#skillassay_outcomes_observed"
+        }
+      ]
+    },
+    {
+      "slug": "relay-league",
+      "name": "Relay League",
+      "cluster": "a2a",
+      "status": "lab",
+      "one_liner": "A2A quiz: agents answer in relay, results are published per run. Built on the Space Whizz engine; v1 passed 90/90 tests.",
+      "buyer": "Agent builders who want a repeatable public event for their agents",
+      "pricing": "Free to join",
+      "url": "https://gobeyondclouds.io/ventures/relay-league",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "a2a",
+        "status": "private-preview",
+        "docs": null,
+        "auth": "invitation"
+      },
+      "siblings": [
+        "skillassay",
+        "a2a-economy-news"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-10",
+      "proof": []
+    },
+    {
+      "slug": "space-whizz",
+      "name": "Space Whizz",
+      "cluster": "space",
+      "status": "waitlist",
+      "one_liner": "Mobile quiz for the space-economy audience: 60-second rounds on space data, launch economics and space solar.",
+      "buyer": "Space-industry marketers, agencies, education",
+      "pricing": "Not set",
+      "url": "https://gobeyondclouds.io/ventures/space-whizz",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "space-solar-news",
+        "space-intel"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "space-intel",
+      "name": "Space economy intel",
+      "cluster": "space",
+      "status": "programme",
+      "one_liner": "Weekly intelligence brief on the space economy, written by agents from public sources; sanitised extracts appear under Insights.",
+      "buyer": "Readers (free)",
+      "pricing": "Free",
+      "url": "https://gobeyondclouds.io/space",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "space-solar-news",
+        "space-whizz"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "sitecast",
+      "name": "Site energy forecasts (data capability)",
+      "cluster": "energy-data",
+      "status": "data-capability",
+      "one_liner": "Local weather to site energy forecast for industrial sites, built on Google WeatherNext 3. Kept running as an input for FlexIntel; not sold as a standalone product since 2026-10-08.",
+      "buyer": "Not sold separately",
+      "pricing": "Not sold separately",
+      "url": "https://gobeyondclouds.io/ventures/sitecast",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "rest",
+        "status": "request",
+        "docs": null,
+        "auth": "request"
+      },
+      "siblings": [
+        "solaranalytics",
+        "flexintel"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-06",
+      "proof": [
+        {
+          "label": "industrial sites in forecast register",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#sitecast_sites"
+        },
+        {
+          "label": "site energy forecasts computed",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#sitecast_forecast_runs"
+        },
+        {
+          "label": "site energy reports generated",
+          "value_source_url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats#sitecast_reports"
+        }
+      ]
+    },
+    {
+      "slug": "cbam",
+      "name": "CBAM Copilot",
+      "cluster": "energy-data",
+      "status": "waitlist",
+      "one_liner": "Carbon border (CBAM) reporting prepared from your import data, checked against the current EU rules.",
+      "buyer": "Importers of steel, aluminium, cement, fertilisers and their customs agents",
+      "pricing": "Not set",
+      "url": "https://gobeyondclouds.io/ventures/cbam",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "art50",
+        "subsidyradar"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "art50",
+      "name": "Art. 50 Kit",
+      "cluster": "energy-data",
+      "status": "waitlist",
+      "one_liner": "EU AI Act Article 50 transparency disclosures for your AI-facing products: texts, labels and a register, delivered once.",
+      "buyer": "SMEs shipping AI features to EU users",
+      "pricing": "€490 one-off (planned)",
+      "url": "https://gobeyondclouds.io/ventures/art50",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "cbam",
+        "skillassay"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "subsidyradar",
+      "name": "SubsidyRadar",
+      "cluster": "energy-data",
+      "status": "waitlist",
+      "one_liner": "Finds the EU and national subsidies an industrial site qualifies for and tracks their deadlines.",
+      "buyer": "Industrial sites, energy consultants",
+      "pricing": "Not set (success-fee model under legal review)",
+      "url": "https://gobeyondclouds.io/ventures/subsidyradar",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "cbam",
+        "flexintel"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "spacetenders",
+      "name": "SpaceTenders",
+      "cluster": "space",
+      "status": "waitlist",
+      "one_liner": "Radar for public space-sector tenders (ESA, EU, national agencies) with deadlines and fit scoring.",
+      "buyer": "Space SMEs and their bid teams",
+      "pricing": "Not set",
+      "url": "https://gobeyondclouds.io/ventures/spacetenders",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "space-intel",
+        "subsidyradar"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    },
+    {
+      "slug": "flexintel",
+      "name": "FlexIntel",
+      "cluster": "energy-data",
+      "status": "waitlist",
+      "one_liner": "Flexibility-market intelligence for industrial sites: when shifting load pays, based on site energy forecasts.",
+      "buyer": "Industrial energy managers, flexibility aggregators",
+      "pricing": "Not set (measured-savings model)",
+      "url": "https://gobeyondclouds.io/ventures/flexintel",
+      "llms_txt": null,
+      "feed": null,
+      "agent_access": {
+        "type": "none",
+        "status": "planned",
+        "docs": null,
+        "auth": null
+      },
+      "siblings": [
+        "sitecast",
+        "solaranalytics"
+      ],
+      "entity": "GBC SRL",
+      "since": "2026-08",
+      "proof": []
+    }
+  ],
+  "credentials": [
+    {
+      "slug": "enerwhizz",
+      "name": "EnerWhizz",
+      "status": "credential",
+      "one_liner": "Mobile quiz game turning energy content into B2B marketing, played across European markets. Built by the same team.",
+      "url": "https://enerwhizz.app",
+      "entity": "EnergyPages SRL"
+    },
+    {
+      "slug": "horizon-projects",
+      "name": "EU Horizon Europe projects",
+      "status": "credential",
+      "one_liner": "Consortium work in eLithe, REDOL, ToFuel and SUPERSHINE through EEIP. Built by the same team.",
+      "url": "https://ee-ip.org",
+      "entity": "EEIP"
+    }
+  ],
+  "feeds": [
+    {
+      "name": "Work Futures Report",
+      "url": "https://workfutures.report/rss.xml",
+      "cluster": "a2a"
+    },
+    {
+      "name": "Space Solar News",
+      "url": "https://spacesolar.news/rss.xml",
+      "cluster": "space"
+    },
+    {
+      "name": "GBC agent activity digest",
+      "url": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/activity",
+      "cluster": "network"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "name": "GoBeyondClouds",
+  "description": "Brussels-based venture network building AI micro-services where space data, AI agents and the energy transition meet. This card lists every GBC service an agent can call or read.",
+  "url": "https://gobeyondclouds.io",
+  "provider": {
+    "organization": "GBC SRL",
+    "url": "https://gobeyondclouds.io",
+    "legal": "BE 0827.753.161, Rue Godefroid Devreese 43, 1030 Brussels, Belgium"
+  },
+  "version": "2026-11-02",
+  "documentationUrl": "https://gobeyondclouds.io/agents",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "application/pdf",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "network-registry",
+      "name": "Venture registry",
+      "description": "Every GBC venture with status, buyer, pricing, agent access and sibling links.",
+      "tags": [
+        "meta"
+      ],
+      "endpoint": "https://gobeyondclouds.io/network.json",
+      "access": "open"
+    },
+    {
+      "id": "network-stats",
+      "name": "Live network statistics",
+      "description": "Public counters and agent-activity feed for the GBC network, refreshed_at per number.",
+      "tags": [
+        "meta"
+      ],
+      "endpoint": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/stats",
+      "access": "open"
+    },
+    {
+      "id": "network-feed",
+      "name": "Network feed",
+      "description": "Merged items from all network sources (newsletters, lab, intel).",
+      "tags": [
+        "media",
+        "rss"
+      ],
+      "endpoint": "https://gobeyondclouds.io/feed.json",
+      "access": "open"
+    },
+    {
+      "id": "solar-prefeasibility",
+      "name": "Solar pre-feasibility report",
+      "description": "Given a factory address or coordinates, returns PV yield, payback and a bankable PDF (PVGIS/Copernicus).",
+      "tags": [
+        "energy",
+        "solar",
+        "eu"
+      ],
+      "examples": [
+        "Estimate rooftop PV potential for a plant at 50.85,4.35"
+      ],
+      "endpoint": "https://solaranalytics.space",
+      "access": "partner api-key"
+    },
+    {
+      "id": "skill-ranking",
+      "name": "Rank AI agent skills by observed outcomes",
+      "description": "Returns outcome-based quality and market price for a named agent skill or category.",
+      "tags": [
+        "agents",
+        "trust",
+        "pricing"
+      ],
+      "examples": [
+        "Which web-scraping skill has the best observed success rate this quarter?"
+      ],
+      "endpoint": "https://skillassay.com",
+      "access": "open index"
+    },
+    {
+      "id": "site-energy-forecast",
+      "name": "Site energy forecast (data capability)",
+      "description": "Local weather-driven energy forecast for an industrial site (WeatherNext 3). Network data on request, not sold as a product.",
+      "tags": [
+        "energy",
+        "weather",
+        "forecast"
+      ],
+      "endpoint": "https://gobeyondclouds.io/ventures/sitecast",
+      "access": "request"
+    },
+    {
+      "id": "waitlist",
+      "name": "Join a venture waitlist",
+      "description": "POST {venture, email, note} for any venture with status waitlist.",
+      "tags": [
+        "meta"
+      ],
+      "endpoint": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/waitlist",
+      "access": "open"
+    },
+    {
+      "id": "hello",
+      "name": "Introduce your agent",
+      "description": "POST {agent_name, operator, purpose, contact} to register a visit and receive the service list.",
+      "tags": [
+        "meta"
+      ],
+      "endpoint": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public/hello",
+      "access": "open, 3/min"
+    }
+  ],
+  "interfaces": {
+    "rest": "https://wbpslhusjnztofaefwkv.supabase.co/functions/v1/gbc-public",
+    "mcp": {
+      "url": "https://mcp.gobeyondclouds.io/mcp",
+      "status": "live",
+      "transport": "streamable-http"
+    },
+    "rss": "https://gobeyondclouds.io/feed.xml",
+    "llms_txt": "https://gobeyondclouds.io/llms.txt"
+  },
+  "payments": {
+    "accepted": [
+      "card (Stripe)",
+      "SEPA"
+    ],
+    "agent_native": {
+      "protocol": "x402 / USDC on Base",
+      "status": "planned"
+    }
+  },
+  "contact": {
+    "email": "hello@gobeyondclouds.io",
+    "human_page": "https://gobeyondclouds.io/agents"
+  }
+}
