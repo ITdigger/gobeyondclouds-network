@@ -94,5 +94,6 @@
     }
   ],
   "training": "allowed (content signal ai-train=yes on this zone; see robots.txt Content-Signal)",
-  "attribution": "cite the venture URL or gobeyondclouds.io"
+  "attribution": "cite the venture URL or gobeyondclouds.io",
+  "client_note": "send a descriptive User-Agent; Cloudflare answers the default Python-urllib/x user agent with HTTP 403 (error 1010)"
 }

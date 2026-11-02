@@ -65,7 +65,8 @@ const full = [
   "Every GBC service is published in a form a machine can discover, read and call.",
   `- Agent Card (A2A): ${SITE}/.well-known/agent-card.json`, `- agents.json / agents.txt: ${SITE}/.well-known/agents.json`, `- Registry: ${SITE}/network.json`, `- Stats: ${API}/stats · Activity: ${API}/activity · Visitors: ${API}/visitors · Status: ${API}/status`,
   `- Feed: ${SITE}/feed.json (RSS ${SITE}/feed.xml)`, `- Hello: POST ${API}/hello {"agent_name","operator","purpose","contact"} — 3 per minute`, `- MCP (live): https://mcp.gobeyondclouds.io/mcp (Streamable HTTP, no auth) with tools network_stats, list_ventures, skill_rank, solar_prefeasibility (key), say_hello`,
-  `- Payments: card (Stripe), SEPA; x402/USDC per call planned.`, "", "# Credentials", "", ...reg.credentials.map((c) => `- ${c.name} (${c.entity}): ${c.one_liner} ${c.url}`), "",
+  `- Payments: card (Stripe), SEPA; x402/USDC per call planned.`,
+  `- Client note: send a descriptive User-Agent (e.g. "my-agent/1.0 (+https://example.com)"). Cloudflare refuses Python urllib's default "Python-urllib/x" with HTTP 403 (error 1010) on every Cloudflare site; python-requests, curl and named bots pass.`, "", "# Credentials", "", ...reg.credentials.map((c) => `- ${c.name} (${c.entity}): ${c.one_liner} ${c.url}`), "",
 ].join("\n") + "\n";
 w("llms-full.txt", full);
 
@@ -104,7 +105,7 @@ const agentsJson = {
     { name: "waitlist", url: `${API}/waitlist`, protocol: "rest", method: "POST", auth: "none", rate_limit: "3/min" },
     { name: "mcp", url: "https://mcp.gobeyondclouds.io/mcp", protocol: "mcp", transport: "streamable-http", auth: "none (api-key for solar_prefeasibility)", status: "live", tools: ["network_stats", "list_ventures", "skill_rank", "solar_prefeasibility", "say_hello"], source: "https://github.com/ITdigger/gobeyondclouds-network" },
   ],
-  training: "allowed (content signal ai-train=yes on this zone; see robots.txt Content-Signal)", attribution: "cite the venture URL or gobeyondclouds.io",
+  training: "allowed (content signal ai-train=yes on this zone; see robots.txt Content-Signal)", attribution: "cite the venture URL or gobeyondclouds.io", client_note: "send a descriptive User-Agent; Cloudflare answers the default Python-urllib/x user agent with HTTP 403 (error 1010)",
 };
 w(".well-known/agents.json", JSON.stringify(agentsJson, null, 2) + "\n");
 w(".well-known/agents.txt", [
