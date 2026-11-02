@@ -26,6 +26,8 @@ def network_block_html() -> str:
     me = next((v for v in vs if v["slug"] == SLUG), None)
     sibs = [next((v for v in vs if v["slug"] == s), None) for s in (me or {}).get("siblings", [])]
     utm = f"?utm_source={SLUG}&utm_medium=network-block&utm_campaign=footer"
+    if not vs:  # registry unreachable: one plain link, no counts
+        return f'<aside id="gbc-network"><a href="{HUB}/ventures{utm}">GoBeyondClouds — all ventures</a></aside>'
     links = [f'<a href="{HUB}/ventures{utm}">All {len(vs)} ventures</a>']
     for s in [x for x in sibs if x]:
         href = s["url"] + (utm if "gobeyondclouds.io" in s["url"] else f"?utm_source={SLUG}&utm_medium=network-block")
